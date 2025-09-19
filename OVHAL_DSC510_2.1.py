@@ -5,12 +5,12 @@
 #Author Praful Ovhal
 #09/16/2025
 
-#Change#:
-#Change(s) Made:
-#Date of Change:
-#Author:
-#Change Approved by:
-#Date Moved to Production:
+#Change#: 1
+#Change(s) Made: float number precision set to 2
+#Date of Change: 09/19/2025
+#Author: Praful Ovhal
+#Change Approved by: Praful Ovhal
+#Date Moved to Production: 09/19/2025
 #--------------------------------------------------------------
 
 print('\n Welcome to the BRUIN Services Ltd'
@@ -29,5 +29,5 @@ print('\n Here is your receipt:'
     + '\n ----------------------------------------------------------------------------'
     + '\n Billing to:',company_name
     + '\n Total length of Fibre Optic cable used to install:',fo_cable_length,'feet'
-    + '\n Total amount to pay: $',cost_fo_cable,
+    + '\n Total amount to pay: $',format(cost_fo_cable, ".2f"),
       '\n ----------------------------------------------------------------------------')
