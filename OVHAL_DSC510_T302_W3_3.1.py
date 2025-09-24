@@ -1,0 +1,61 @@
+#------------------------------------------------------------
+#DSC 510
+#Week 2
+#Programming Assignment Week 2
+#Author Praful Ovhal
+#09/16/2025
+
+#Change#: 1
+#Change(s) Made: float number precision set to 2
+#Date of Change: 09/19/2025
+#Author: Praful Ovhal
+#Change Approved by: Praful Ovhal
+#Date Moved to Production: 09/19/2025
+
+#Change#: 2
+#Change(s) Made:
+#   1. try except block added to catch the error
+#   2. conditional statements added to calculate the cost by discounted rate
+#Date of Change: 09/23/2025
+#Author: Praful Ovhal
+#Change Approved by: Praful Ovhal
+#Date Moved to Production:
+#--------------------------------------------------------------
+
+print('\n Welcome to the BRUIN Services Ltd'
+      + '\n Please enter your details below.')
+
+company_name = input('\n What is your company name? : ')
+fo_cable_length = input('\n To install the Fibre Optic cable, please enter the length (in feet)? : ')
+
+try:
+    cable_length = float(fo_cable_length)                   #Converting input to type float
+
+    cost1 = 0.95  # Installation cost for cable length upto 100 feet
+    cost2 = 0.85  # Installation cost for cable length more than 100 and upto 250 feet
+    cost3 = 0.75  # Installation cost for cable length more than 250 and upto 500 feet
+    cost4 = 0.55  # Installation cost for cable length more than 500 feet
+
+    #Calculating the cost to install the optic fibre cable per foot
+    if 0 < cable_length <= 100:
+        cost_fo_cable = cable_length * cost1
+    elif 100 < cable_length <= 250:
+        cost_fo_cable = cable_length * cost2
+    elif 250 < cable_length <= 500:
+        cost_fo_cable = cable_length * cost3
+    elif cable_length > 500:
+        cost_fo_cable = cable_length * cost4
+    else:
+        print('\n The length of the Optic fibre cable should be greater than 0 !')
+
+    #Printing the receipt in the format below
+    print('\n Here is your receipt:'
+        + '\n ----------------------------------------------------------------------------'
+        + '\n                              BRUIN Services Ltd'
+        + '\n ----------------------------------------------------------------------------'
+        + '\n Billing to:', company_name
+        + '\n Total length of Fibre Optic cable used to install:', format(cable_length, ".2f"), 'feet'
+        + '\n Total amount to pay: $', format(cost_fo_cable, ".2f"),
+          '\n ----------------------------------------------------------------------------')
+except:
+    print('\n Please enter cable length in number format (like 123 or 12.21).\n Lets start again...')
