@@ -1,7 +1,7 @@
 #------------------------------------------------------------
 #DSC 510
-#Week 2
-#Programming Assignment Week 2
+#Week 3
+#Programming Assignment Week 3
 #Author Praful Ovhal
 #09/16/2025
 
@@ -19,7 +19,7 @@
 #Date of Change: 09/23/2025
 #Author: Praful Ovhal
 #Change Approved by: Praful Ovhal
-#Date Moved to Production:
+#Date Moved to Production: 09/26/2025
 #--------------------------------------------------------------
 
 print('\n Welcome to the BRUIN Services Ltd'
@@ -34,7 +34,7 @@ try:
     cost3 = 0.75  # Installation cost for cable length more than 250 and upto 500 feet
     cost4 = 0.55  # Installation cost for cable length more than 500 feet
 
-    #Calculating the cost to install the optic fibre cable per foot
+    #Calculating the total discounted cost to install the optic fibre cable per foot which is based on the cable length
     if 0 < cable_length <= 100:
         cost_fo_cable = cable_length * cost1
         cost_applied = cost1
