@@ -26,11 +26,9 @@ print('\n Welcome to the BRUIN Services Ltd'
       + '\n Please enter your details below.')
 
 company_name = input('\n What is your company name? : ')
-fo_cable_length = input('\n To install the Fibre Optic cable, please enter the length (in feet)? : ')
+cable_length = float(input('\n To install the Fibre Optic cable, please enter the length (in feet)? : '))
 
 try:
-    cable_length = float(fo_cable_length)                   #Converting input to type float
-
     cost1 = 0.95  # Installation cost for cable length upto 100 feet
     cost2 = 0.85  # Installation cost for cable length more than 100 and upto 250 feet
     cost3 = 0.75  # Installation cost for cable length more than 250 and upto 500 feet
@@ -39,12 +37,16 @@ try:
     #Calculating the cost to install the optic fibre cable per foot
     if 0 < cable_length <= 100:
         cost_fo_cable = cable_length * cost1
+        cost_applied = cost1
     elif 100 < cable_length <= 250:
         cost_fo_cable = cable_length * cost2
+        cost_applied = cost2
     elif 250 < cable_length <= 500:
         cost_fo_cable = cable_length * cost3
+        cost_applied = cost3
     elif cable_length > 500:
         cost_fo_cable = cable_length * cost4
+        cost_applied = cost4
     else:
         print('\n The length of the Optic fibre cable should be greater than 0 !')
 
@@ -55,6 +57,7 @@ try:
         + '\n ----------------------------------------------------------------------------'
         + '\n Billing to:', company_name
         + '\n Total length of Fibre Optic cable used to install:', format(cable_length, ".2f"), 'feet'
+        + '\n Discounted cost applied per feet:', format(cost_applied, ".2f")
         + '\n Total amount to pay: $', format(cost_fo_cable, ".2f"),
           '\n ----------------------------------------------------------------------------')
 except:
