@@ -36,19 +36,17 @@ try:
 
     #Calculating the total discounted cost to install the optic fibre cable per foot which is based on the cable length
     if 0 < cable_length <= 100:
-        cost_fo_cable = cable_length * cost1
         cost_applied = cost1
     elif 100 < cable_length <= 250:
-        cost_fo_cable = cable_length * cost2
         cost_applied = cost2
     elif 250 < cable_length <= 500:
-        cost_fo_cable = cable_length * cost3
         cost_applied = cost3
     elif cable_length > 500:
-        cost_fo_cable = cable_length * cost4
         cost_applied = cost4
     else:
         print('\n The length of the Optic fibre cable should be greater than 0 !')
+
+    cost_fo_cable = cable_length * cost_applied
 
     #Printing the receipt in the format below
     print('\n Here is your receipt:'
