@@ -77,7 +77,10 @@ def main():
                 print(f"\n The multiplication result is:", format(result,".2f"))
             elif choice == 4:
                 result = perform_calculations('/')
-                print(f"\n The division result is:", format(result,".2f"))
+                if result is not None:
+                    print(f"\n The division result is:", format(result,".2f"))
+                else:
+                    print("\n The division result is None")
             elif choice == 5:
                 result = calculate_average()
                 # Handling runtime error
