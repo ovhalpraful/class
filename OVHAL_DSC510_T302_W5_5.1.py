@@ -91,7 +91,7 @@ def main():
             print("\n Please enter a valid choice and try again.")
         # Handling the exception while terminating the program
         except KeyboardInterrupt:
-            print("\n Exiting program...")
+            print("\n Exiting calculator...")
             exit()
         finally:
             print("\n Thank you for using Python Calculator")
