@@ -3,7 +3,14 @@
 #Week 5
 #Programming Assignment 5.1 - To perform math operations using looping
 #Author Praful Ovhal
-#Date 10-09-2025
+#Date 10-08-2025
+
+#Change#: 1
+#Change(s) Made: Added the runtime error handling code & comments
+#Date of Change: 10/09/2025
+#Author: Praful Ovhal
+#Change Approved by: Praful Ovhal
+#Date Moved to Production: 10/09/2025
 #--------------------------------------------------------------
 
 # Function to calculate math operations.
