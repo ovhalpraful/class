@@ -11,7 +11,6 @@ def perform_calculations(operation):
     try:
         num1 = float(input('\n Please enter first number: '))
         num2 = float(input('\n Please enter second number: '))
-
         if operation == '+':
             return num1 + num2
         elif operation == '-':
@@ -33,22 +32,20 @@ def perform_calculations(operation):
 def calculate_average():
     try:
         number_range = int(input('\n Please enter total count of numbers: '))
-
-        if number_range <= 0:
+        if number_range > 0:
+            total = 0.0
+            for count in range(int(number_range)):      #Looping through the range & adding the numbers
+                while True:
+                    try:
+                        number = float(input(f"\n Please enter {count+1} number: "))
+                        total = total + float(number)
+                        break
+                    except ValueError:
+                        print("\n Please enter a valid number and try again.")
+            average = total / number_range
+            return average
+        else:
             print("\n Please enter a number greater than zero and try again.")
-
-        total = 0.0
-        for count in range(int(number_range)):      #Looping through the range & adding the numbers
-            while True:
-                try:
-                    number = float(input(f"\n Please enter {count+1} number: "))
-                    total = total + float(number)
-                    break
-                except ValueError:
-                    print("\n Please enter a valid number and try again.")
-
-        average = total / number_range
-        return average
     except ValueError:
         print("\n Please enter a valid number and try again.")
         return None
@@ -59,10 +56,8 @@ def main():
     while True:
         print("\n Choose an operation: ")
         print("\n 1.Addition \n 2.Subtraction \n 3.Multiplication \n 4.Division \n 5.Average \n 6.Exit ")
-
         try:
             choice = int(input("\n Please enter your choice as (1 or 2 or 3 or 4 or 5 or 6): "))
-
             # Selecting an option from the choices
             if choice == 1:
                 result = perform_calculations('+')
@@ -84,6 +79,7 @@ def main():
                 else:
                     print(f"\n The average result is:", format(result, ".2f"))
             elif choice == 6:
+                print("\n Exiting...")
                 exit()
             else:
                 print("\n Invalid choice. Please try again.")
@@ -92,9 +88,6 @@ def main():
         # Handling the exception while terminating the program
         except KeyboardInterrupt:
             print("\n Exiting calculator...")
-            exit()
-        finally:
-            print("\n Thank you for using Python Calculator")
             exit()
 
 if __name__ == '__main__':
