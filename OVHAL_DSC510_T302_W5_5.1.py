@@ -6,7 +6,7 @@
 #Date 10-08-2025
 #--------------------------------------------------------------
 
-def perform_calculations():
+def perform_calculations(operation):
     operation = input('\n What kind of calculation do you want to perform? Please enter the symbol: \n 1. for Add + \n 2.for Subtract - \n 3. for Multiply * \n 4.for Divide / \n >>')
     operand_1 = float(input('\n Please enter first operand? : '))
     operand_2 = float(input('\n Please enter second operand? : '))
