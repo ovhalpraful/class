@@ -35,7 +35,7 @@ def calculate_average():
         if number_range <= 0:
             print("\n Please enter a number greater than zero and try again.")
 
-        total = 0
+        total = 0.0
         for count in range(int(number_range)):
             while True:
                 try:
