@@ -1,7 +1,7 @@
 #------------------------------------------------------------
 #DSC 510
 #Week 5
-#Programming Assignment Week 5
+#Programming Assignment 5.1
 #Author Praful Ovhal
 #Date 10-08-2025
 #--------------------------------------------------------------
@@ -51,8 +51,6 @@ def calculate_average():
         print("\n Please enter a valid number and try again.")
         return None
 
-
-
 def main():
     print("\n Welcome to Python Calculator")
 
@@ -65,19 +63,22 @@ def main():
 
             if choice == '1':
                 result = perform_calculations('+')
-                print(f"\n The addition result is: {result}")
+                print(f"\n The addition result is:", format(result,".2f"))
             elif choice == '2':
                 result = perform_calculations('-')
-                print(f"\n The subtraction result is: {result}")
+                print(f"\n The subtraction result is:", format(result,".2f"))
             elif choice == '3':
                 result = perform_calculations('*')
-                print(f"\n The multiplication result is: {result}")
+                print(f"\n The multiplication result is:", format(result,".2f"))
             elif choice == '4':
                 result = perform_calculations('/')
-                print(f"\n The division result is: {result}")
+                print(f"\n The division result is:", format(result,".2f"))
             elif choice == '5':
                 result = calculate_average()
-                print(f"\n The average result is: {result}")
+                if result is None:
+                    print(f"\n The average result is: {result}")
+                else:
+                    print(f"\n The average result is:", format(result, ".2f"))
             elif choice == '6':
                 exit()
             else:
