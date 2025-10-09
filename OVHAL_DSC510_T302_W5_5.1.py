@@ -1,9 +1,9 @@
 #------------------------------------------------------------
 #DSC 510
 #Week 5
-#Programming Assignment 5.1
+#Programming Assignment 5.1 - To perform math operations using looping
 #Author Praful Ovhal
-#Date 10-08-2025
+#Date 10-09-2025
 #--------------------------------------------------------------
 
 # Function to calculate math operations.
@@ -64,26 +64,26 @@ def main():
             choice = int(input("\n Please enter your choice as (1 or 2 or 3 or 4 or 5 or 6): "))
 
             # Selecting an option from the choices
-            if choice == '1':
+            if choice == 1:
                 result = perform_calculations('+')
                 print(f"\n The addition result is:", format(result,".2f"))
-            elif choice == '2':
+            elif choice == 2:
                 result = perform_calculations('-')
                 print(f"\n The subtraction result is:", format(result,".2f"))
-            elif choice == '3':
+            elif choice == 3:
                 result = perform_calculations('*')
                 print(f"\n The multiplication result is:", format(result,".2f"))
-            elif choice == '4':
+            elif choice == 4:
                 result = perform_calculations('/')
                 print(f"\n The division result is:", format(result,".2f"))
-            elif choice == '5':
+            elif choice == 5:
                 result = calculate_average()
                 # Handling runtime error
                 if result is None:
                     print(f"\n The average result is: {result}")
                 else:
                     print(f"\n The average result is:", format(result, ".2f"))
-            elif choice == '6':
+            elif choice == 6:
                 exit()
             else:
                 print("\n Invalid choice. Please try again.")
@@ -95,6 +95,7 @@ def main():
             exit()
         finally:
             print("\n Thank you for using Python Calculator")
+            exit()
 
 if __name__ == '__main__':
     main()
