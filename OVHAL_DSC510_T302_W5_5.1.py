@@ -63,6 +63,7 @@ def main():
         try:
             choice = int(input("\n Please enter your choice as (1 or 2 or 3 or 4 or 5 or 6): "))
 
+            # Selecting an option from the choices
             if choice == '1':
                 result = perform_calculations('+')
                 print(f"\n The addition result is:", format(result,".2f"))
@@ -77,6 +78,7 @@ def main():
                 print(f"\n The division result is:", format(result,".2f"))
             elif choice == '5':
                 result = calculate_average()
+                # Handling runtime error
                 if result is None:
                     print(f"\n The average result is: {result}")
                 else:
