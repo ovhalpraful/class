@@ -19,18 +19,16 @@ def main():
 
     #Accepting temperatures from the user
     while True:
-        user_input = input("Enter the temperature in fahrenheit OR Press q to quit: ")
-
-        if user_input.lower() == sentinel:
-            break
         try:
+            user_input = input("Enter the temperature in fahrenheit OR Press q to quit: ")
+            if user_input.lower() == sentinel:
+                break
             temp = float(user_input)
             temperature.append(temp)
         except ValueError:
             print("Please enter a valid temperature in numbers")
         except KeyboardInterrupt:
-            print("Exiting the program...")
-            break
+            exit("\nExiting the program...")
 
     #Finding the minimum, maximum, & total count of temperature in the list
     if temperature:
