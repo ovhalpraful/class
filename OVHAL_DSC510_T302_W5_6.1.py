@@ -4,8 +4,6 @@
 #Programming Assignment 6.1 - Accepting temperatures and finding the smallest & largest in the list
 #Author Praful Ovhal
 #Date 10-14-2025
-from decorator import append
-
 
 #Change#: 1
 #Change(s) Made: Added comments and formatted the output
