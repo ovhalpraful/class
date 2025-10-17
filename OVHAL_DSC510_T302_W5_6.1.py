@@ -20,7 +20,7 @@ def main():
     #Accepting temperatures from the user
     while True:
         try:
-            user_input = input("Enter the temperature in fahrenheit OR Press q to quit: ")
+            user_input = input("Enter the temperature in fahrenheit OR Press q to quit: ").strip()
             if user_input.lower() == sentinel:
                 break
             temp = float(user_input)
