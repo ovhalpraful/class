@@ -12,6 +12,15 @@
 #Change Approved by: Praful Ovhal
 #Date Moved to Production: 10-15-2025
 #--------------------------------------------------------------
+import logging
+
+# Error logging
+logging.basicConfig(
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='error.log',  # Logs will be written to this file
+    filemode='a'           # Append mode
+)
 
 def main():
     sentinel = 'q'
@@ -25,9 +34,11 @@ def main():
                 break
             temp = float(user_input)
             temperatures.append(temp)
-        except ValueError:
+        except Exception as e:
+            logging.error(f"Invalid input:{e}", exc_info=True)
             print("Please enter a valid temperature in numbers")
-        except KeyboardInterrupt:
+        except KeyboardInterrupt as e:
+            logging.error("User interrupted", exc_info=True)
             exit("\nExiting the program...")
 
     #Finding the minimum, maximum, & total count of temperature in the list

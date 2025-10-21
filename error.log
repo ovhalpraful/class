@@ -1,0 +1,22 @@
+2025-10-21 15:13:46,334 - ERROR - Invalid input:could not convert string to float: 'f'
+Traceback (most recent call last):
+  File "C:\Users\ayans\PycharmProjects\class\OVHAL_DSC510_T302_W5_6.1.py", line 35, in main
+    temp = float(user_input)
+ValueError: could not convert string to float: 'f'
+2025-10-21 15:15:58,024 - ERROR - Invalid input:could not convert string to float: 'f'
+Traceback (most recent call last):
+  File "C:\Users\ayans\PycharmProjects\class\OVHAL_DSC510_T302_W5_6.1.py", line 35, in main
+    temp = float(user_input)
+ValueError: could not convert string to float: 'f'
+2025-10-21 15:16:37,393 - ERROR - Invalid input:could not convert string to float: 'f'
+Traceback (most recent call last):
+  File "C:\Users\ayans\PycharmProjects\class\OVHAL_DSC510_T302_W5_6.1.py", line 35, in main
+    temp = float(user_input)
+ValueError: could not convert string to float: 'f'
+2025-10-21 15:18:07,811 - ERROR - User interrupted
+Traceback (most recent call last):
+  File "C:\Users\ayans\PycharmProjects\class\OVHAL_DSC510_T302_W5_6.1.py", line 32, in main
+    user_input = input("Enter the temperature in fahrenheit OR Press q to quit: ").strip()
+                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen codecs>", line 322, in decode
+KeyboardInterrupt
