@@ -34,11 +34,11 @@ def main():
                 break
             temp = float(user_input)
             temperatures.append(temp)
-        except Exception as e:
+        except ValueError as e:
             logging.error(f"Invalid input:{e}", exc_info=True)
             print("Please enter a valid temperature in numbers")
         except KeyboardInterrupt as e:
-            logging.error("User interrupted", exc_info=True)
+            logging.error(f"User interrupted:{e}", exc_info=True)
             exit("\nExiting the program...")
 
     #Finding the minimum, maximum, & total count of temperature in the list
