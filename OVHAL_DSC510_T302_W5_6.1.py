@@ -41,7 +41,7 @@ def main():
             logging.error(f"User interrupted:{e}", exc_info=True)
             exit("\nExiting the program...")
 
-    #Finding the minimum, maximum, & total count of temperature in the list
+    #Finding the minimum, maximum, & total count of temperature from the list
     if temperatures:
         maximum_temp = max(temperatures)
         minimum_temp = min(temperatures)
