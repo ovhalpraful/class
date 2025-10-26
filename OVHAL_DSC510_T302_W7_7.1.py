@@ -20,7 +20,7 @@ logging.basicConfig(
     level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s',
     filename='error.log',  # Logs will be written to this file
-    filemode='a'           # Append mode
+    filemode='r'           # Read mode
 )
 
 #Reading words from the gettysburg file and adding to the dictionary
@@ -47,9 +47,9 @@ def pretty_print(word_dict):
 def main():
     word_dict = {}
     try:
-        with open("gettysburg.txt", "r") as fileHandle:                 #Opening file in Read only format
+        with open("gettysburg.txt") as fileHandle:                      #Opening file in Read only format
             for line in fileHandle:
-                process_line(line, word_dict)                           #Reading the file
+                process_line(line, word_dict)                           #Reading the file and processing line by line to read words & add to dictionary
         print(f"\nTotal unique words in the dictionary: {len(word_dict)}\n")
         pretty_print(word_dict)
     except FileNotFoundError as e:
