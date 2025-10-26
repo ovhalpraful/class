@@ -6,17 +6,14 @@
 #Date 10-25-2025
 
 #Change#: 1
-#Change(s) Made:
-#Date of Change: 10-25-2025
+#Change(s) Made: Added comments
+#Date of Change: 10-26-2025
 #Author: Praful Ovhal
 #Change Approved by: Praful Ovhal
-#Date Moved to Production: 10-25-2025
+#Date Moved to Production: 10-26-2025
 #--------------------------------------------------------------
 import logging
 import string
-from time import process_time
-
-from fontTools.ttx import process
 
 # Error logging
 logging.basicConfig(
@@ -26,18 +23,21 @@ logging.basicConfig(
     filemode='a'           # Append mode
 )
 
+#Reading words from the gettysburg file and adding to the dictionary
 def add_word(word, word_dict):
     if word not in word_dict:
         word_dict[word] = 1
     else:
         word_dict[word] += 1
 
+#Reading the file & processing the line to remove special char, whitespaces and adding the words to the dictionary
 def process_line(line, word_dict):
     line = line.translate(str.maketrans('', '', string.punctuation))
     line = line.lower().strip().split()
     for word in line:
         add_word(word, word_dict)
 
+#Printing the result in a grid format
 def pretty_print(word_dict):
     print(f"{'Word':<15}{'Count':<15}")
     print("-"*20)
@@ -47,14 +47,14 @@ def pretty_print(word_dict):
 def main():
     word_dict = {}
     try:
-        with open("gettysburg.txt", "r") as fileHandle:
+        with open("gettysburg.txt", "r") as fileHandle:                 #Opening file in Read only format
             for line in fileHandle:
-                process_line(line, word_dict)
+                process_line(line, word_dict)                           #Reading the file
         print(f"\n Total unique words: {len(word_dict)}\n")
         pretty_print(word_dict)
     except FileNotFoundError as e:
         logging.error(e)
-        print(e)
+        print(f"\n File not found: {e}")
 
 if __name__ == '__main__':
     main()
