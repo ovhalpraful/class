@@ -50,7 +50,7 @@ def main():
         with open("gettysburg.txt", "r") as fileHandle:                 #Opening file in Read only format
             for line in fileHandle:
                 process_line(line, word_dict)                           #Reading the file
-        print(f"\n Total unique words: {len(word_dict)}\n")
+        print(f"\nTotal unique words in the dictionary: {len(word_dict)}\n")
         pretty_print(word_dict)
     except FileNotFoundError as e:
         logging.error(e)
