@@ -20,7 +20,7 @@ logging.basicConfig(
     level=logging.ERROR,
     format='%(asctime)s - %(levelname)s - %(message)s',
     filename='error.log',  # Logs will be written to this file
-    filemode='r'           # Read mode
+    filemode='a'           # Append mode
 )
 
 #Reading words from the gettysburg file and adding to the dictionary
