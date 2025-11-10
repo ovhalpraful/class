@@ -121,3 +121,15 @@ KeyboardInterrupt
 2025-11-08 21:36:20,252 - ERROR - Row has incorrect number of values, (actual) 6!=2 (expected)
 2025-11-08 21:38:46,362 - ERROR - 
 2025-11-09 15:06:10,347 - ERROR - 
+2025-11-09 20:56:31,089 - ERROR - 
+2025-11-09 20:57:07,298 - ERROR - 
+2025-11-09 20:58:46,618 - ERROR - 
+2025-11-09 20:59:45,349 - ERROR - 
+2025-11-09 21:00:22,923 - ERROR - 
+2025-11-09 21:01:52,924 - ERROR - 
+2025-11-09 21:02:07,713 - ERROR - invalid literal for int() with base 10: 'dwf'
+2025-11-09 21:02:11,378 - ERROR - invalid literal for int() with base 10: ' '
+2025-11-09 21:02:16,583 - ERROR - invalid literal for int() with base 10: '__'
+2025-11-09 21:03:14,324 - ERROR - 
+2025-11-09 21:03:30,235 - ERROR - Connection error
+2025-11-09 21:03:41,809 - ERROR - Connection error

@@ -3,7 +3,7 @@
 #Week 9
 #Programming Assignment 9.1 - Take joke category user input and using API get the jokes and display accordingly.
 #Author Praful Ovhal
-#Date 10-04-2025
+#Date 11-04-2025
 
 #Change#: 1
 #Change(s) Made: Added exceptions code and comments
@@ -72,12 +72,12 @@ def pretty_print_joke(selection):
 def main():
     try:
         serial_no = 0
+        print("\nWelcome to Chuck Norris Jokes Portal.")
         for category in get_categories():
             serial_no += 1
-            print(f"{serial_no}.{category}")
+            print(f"{serial_no}.{category.upper()}")
 
         sentinel = 0
-        print("\nWelcome to Chuck Norris Jokes Portal.")
         while True:
             try:
                 #Accepting joke category from user.
@@ -87,7 +87,6 @@ def main():
                     exit(0)
                 elif 0 < selection <= len(get_categories()):
                     pretty_print_joke(selection)
-                    #print(f"Here is your joke from the selected category {get_categories()[selection - 1].upper()}: {joke}")
                 else:
                     print(f"Sorry, the jokes category you entered is out of range. Please try again.")
             except ValueError as ve:
