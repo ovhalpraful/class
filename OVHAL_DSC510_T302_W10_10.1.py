@@ -1,0 +1,77 @@
+#------------------------------------------------------------
+#DSC 510
+#Week 10
+#Programming Assignment 10.1 -
+#Author Praful Ovhal
+#Date 11--2025
+import locale
+#Change#: 1
+#Change(s) Made:
+#Date of Change: 11--2025
+#Author: Praful Ovhal
+#Change Approved by: Praful Ovhal
+#Date Moved to Production: 11--2025
+#--------------------------------------------------------------
+import logging
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+
+# Error logging
+logging.basicConfig(
+    level=logging.ERROR,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    filename='error.log',  # Logs will be written to this file
+    filemode='a'           # Append mode
+)
+
+class CashRegister():
+    """Cash Register Class is used to register items, calculate total price, & item count."""
+
+    def __init__(self):
+        self.item_count = 0
+        self.total_price = 0.0
+
+    def add_item(self, price):
+        self.item_count += 1
+        self.total_price += price
+
+    @property
+    def get_total_price(self):
+        return self.total_price
+
+    @property
+    def get_item_count(self):
+        return self.item_count
+
+def main():
+    sentinel = 'q'
+    register = CashRegister()
+    print("Welcome to the BRUIN Store")
+
+    while True:
+        try:
+            user_input = input(f"Would you like to add more Items in your cart? If YES, then please press 'Y/y' or 'Q/q' to QUIT.: ").strip().lower()
+            if user_input == 'q':
+                break
+            elif user_input == 'y':
+                price = float(input("Enter the price: "))
+                if price <= 0:
+                    print("Price is less than 0, please try again.")
+                    continue
+                else:
+                    register.add_item(price)
+                    print("Your Cart contents")
+                    print("-" *100)
+                    print(f"{'Total # of items in your cart':<50}{'Total price of the cart':<50}")
+                    print("-" * 100)
+                    print(f"{register.get_item_count:<50}{locale.currency(register.get_total_price):<50}")
+                    print("-" * 100)
+            else:
+                print("You have not entered the suggested input. Please press 'Y/y' or 'Q/q' to QUIT")
+                continue
+        except KeyboardInterrupt:
+            print("You have stopped the transaction. Exiting...")
+            logging.error(f"User stopped the program execution.")
+            break
+
+if __name__ == '__main__':
+    main()
