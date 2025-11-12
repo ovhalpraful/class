@@ -4,7 +4,7 @@
 #Programming Assignment 10.1 -
 #Author Praful Ovhal
 #Date 11--2025
-import locale
+
 #Change#: 1
 #Change(s) Made:
 #Date of Change: 11--2025
@@ -13,6 +13,7 @@ import locale
 #Date Moved to Production: 11--2025
 #--------------------------------------------------------------
 import logging
+import locale
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 # Error logging
