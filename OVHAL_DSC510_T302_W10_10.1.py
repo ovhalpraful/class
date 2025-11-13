@@ -52,6 +52,7 @@ def main():
         try:
             user_input = input(f"Would you like to add more Items in your cart? If YES, then please press 'Y/y' or 'Q/q' to QUIT.: ").strip().lower()
             if user_input == 'q':
+                print("Thank you for using BRUIN Store.")
                 break
             elif user_input == 'y':
                 price = float(input("Enter the price: "))
@@ -60,12 +61,6 @@ def main():
                     continue
                 else:
                     register.add_item(price)
-                    print("Your Cart contents")
-                    print("-" *100)
-                    print(f"{'Total # of items in your cart':<50}{'Total price of the cart':<50}")
-                    print("-" * 100)
-                    print(f"{register.get_item_count:<50}{locale.currency(register.get_total_price):<50}")
-                    print("-" * 100)
             else:
                 print("You have not entered the suggested input. Please press 'Y/y' or 'Q/q' to QUIT")
                 continue
@@ -73,6 +68,13 @@ def main():
             print("You have stopped the transaction. Exiting...")
             logging.error(f"User stopped the program execution.")
             break
+
+    print("Your Cart contents")
+    print("-" * 100)
+    print(f"{'Total # of items in your cart':<50}{'Total price of the cart':<50}")
+    print("-" * 100)
+    print(f"{register.get_item_count:<50}{locale.currency(register.get_total_price):<50}")
+    print("-" * 100)
 
 if __name__ == '__main__':
     main()
