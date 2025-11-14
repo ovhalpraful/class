@@ -1,16 +1,17 @@
 #------------------------------------------------------------
 #DSC 510
 #Week 10
-#Programming Assignment 10.1 -
+#Programming Assignment 10.1 - Using OOPS create CashRegister class & add item(s) in it, calculate the total price of items,
+#                              and print the cart in a relevant format.
 #Author Praful Ovhal
-#Date 11--2025
+#Date 11-12-2025
 
 #Change#: 1
-#Change(s) Made:
-#Date of Change: 11--2025
+#Change(s) Made: Added validations and comments
+#Date of Change: 11-13-2025
 #Author: Praful Ovhal
 #Change Approved by: Praful Ovhal
-#Date Moved to Production: 11--2025
+#Date Moved to Production: 11-13-2025
 #--------------------------------------------------------------
 import logging
 import locale
@@ -52,12 +53,12 @@ def main():
         try:
             user_input = input(f"Please select a step from the following to perform: \nY: To add item \nC: Go to cart \nQ: To quit \nYou choice: ").strip().lower()
             if user_input == 'q':
-                print("Thank you for using BRUIN Store.")
+                print("\033[34mThank you for using BRUIN Store.\033[0m")
                 break
             elif user_input == 'y':
                 price = float(input("Enter the price: "))
                 if price <= 0:
-                    print("Price is less than 0, please try again.")
+                    print("\033[31mPrice is less than 0, please try again.\033[0m")
                     continue
                 else:
                     register.add_item(price)
@@ -69,10 +70,10 @@ def main():
                 print(f"{register.get_item_count:<50}{locale.currency(register.get_total_price):<50}")
                 print("-" * 100)
             else:
-                print("You have not entered the suggested input. Please select again.")
+                print("\033[31mYou have not entered the suggested input. Please try again.\033[0m")
                 continue
         except KeyboardInterrupt:
-            print("\nYou have stopped the transaction. Exiting...")
+            print("\n\033[31mYou have stopped the transaction. Exiting...\033[0m")
             logging.error(f"User stopped the program execution.")
             break
 
