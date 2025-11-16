@@ -15,6 +15,9 @@
 #--------------------------------------------------------------
 import logging
 import locale
+
+from pandas.core.computation.ops import isnumeric
+
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 # Error logging
@@ -67,7 +70,7 @@ def main():
                         register.add_item(price)
                         print("\033[32mItem added to the cart successfully.\033[0m")
                 except ValueError:
-                    print("\033[31mYou have entered text, please use digits only.\033[0m")
+                    print("\033[31mPlease use numbers to enter price.\033[0m")
                     logging.error("Invalid input")
             #Displaying cart contents
             elif user_input == 'c':
