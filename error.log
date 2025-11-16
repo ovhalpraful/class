@@ -160,3 +160,14 @@ KeyboardInterrupt
 2025-11-15 21:32:19,140 - ERROR - User stopped the program execution.
 2025-11-15 21:37:54,509 - ERROR - Invalid input
 2025-11-15 21:39:44,179 - ERROR - Invalid input
+2025-11-15 22:56:30,372 - ERROR - Invalid input
+2025-11-15 23:01:44,309 - ERROR - 'lat'
+2025-11-15 23:06:39,730 - ERROR - 'lat'
+2025-11-15 23:07:32,080 - ERROR - 'lat'
+2025-11-15 23:08:44,147 - ERROR - 'lat'
+2025-11-15 23:10:44,441 - ERROR - 'lat'
+2025-11-15 23:10:44,442 - ERROR - list indices must be integers or slices, not str
+2025-11-15 23:13:15,686 - ERROR - 'lat'
+2025-11-15 23:14:07,337 - ERROR - 'lat'
+2025-11-15 23:22:50,570 - ERROR - 'lat'
+2025-11-15 23:23:11,442 - ERROR - 'lat'
