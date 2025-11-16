@@ -1,7 +1,7 @@
 #------------------------------------------------------------
 #DSC 510
 #Week 11
-#Programming Assignment 11.1 -
+#Programming Assignment 11.1 - Weather forecast app: Displaying weather using OpenWeatherMap API
 #Author Praful Ovhal
 #Date 11--2025
 
