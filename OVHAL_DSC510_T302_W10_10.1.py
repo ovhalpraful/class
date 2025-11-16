@@ -15,9 +15,6 @@
 #--------------------------------------------------------------
 import logging
 import locale
-
-from pandas.core.computation.ops import isnumeric
-
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 
 # Error logging
