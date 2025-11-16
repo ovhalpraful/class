@@ -32,14 +32,17 @@ class CashRegister():
         self.item_count = 0
         self.total_price = 0.0
 
+    #Funtion to add items in the cart
     def add_item(self, price):
         self.item_count += 1
         self.total_price += price
 
+    #Function to return total price in the cart
     @property
     def get_total_price(self):
         return self.total_price
 
+    #Function to return total items in the cart
     @property
     def get_item_count(self):
         return self.item_count
@@ -48,7 +51,6 @@ def main():
     sentinel = 'q'
     register = CashRegister()
     print("Welcome to the BRUIN Store")
-
     while True:
         try:
             user_input = input(f"Please select a step from the following to perform: \nY: To add item \nC: Go to cart \nQ: To quit \nYou choice: ").strip().lower()
@@ -56,12 +58,18 @@ def main():
                 print("\033[34mThank you for using BRUIN Store.\033[0m")
                 break
             elif user_input == 'y':
-                price = float(input("Enter the price: "))
-                if price <= 0:
-                    print("\033[31mPrice is less than 0, please try again.\033[0m")
-                    continue
-                else:
-                    register.add_item(price)
+                try:
+                    price = float(input("Enter the price: "))
+                    if price <= 0:
+                        print("\033[31mPrice cannot be zero or less, please try again.\033[0m")
+                        continue
+                    else:
+                        register.add_item(price)
+                        print("\033[32mItem added to the cart successfully.\033[0m")
+                except ValueError:
+                    print("\033[31mYou have entered text, please use digits only.\033[0m")
+                    logging.error("Invalid input")
+            #Displaying cart contents
             elif user_input == 'c':
                 print("Your Cart contents")
                 print("-" * 100)
