@@ -27,6 +27,7 @@ logging.basicConfig(
     filemode='a'           # Append mode
 )
 
+#Function to get coordinates by State & City using Current weather API
 def get_coordinates(api_coordinates_url):
     try:
         headers = {'cache-control': 'no-cache'}
@@ -37,7 +38,12 @@ def get_coordinates(api_coordinates_url):
         logging.error(e)
         print("Something went wrong. Please try again later.")
         return None
+    except IndexError as ie:
+        logging.error(ie)
+        print("Something went wrong. Please try again later.")
+        return None
 
+#Function to get weather data by passing coordinates through Geocoding API
 def get_weather(coordinates, unit):
     try:
         latitude = coordinates['lat']
@@ -54,12 +60,17 @@ def get_weather(coordinates, unit):
     except KeyError as e:
         logging.error(e)
         print("Something went wrong. Please try again later.")
+        return None
+    except IndexError as ie:
+        logging.error(ie)
+        print("Something went wrong. Please try again later.")
         exit()
     except Exception as e:
         logging.error(e)
         print("Something went wrong. Please try again later.")
         return None
 
+#Function to print the weather data in a readable format
 def print_weather(weather):
     try:
         print("-"*40)
@@ -89,6 +100,7 @@ def main():
         print("-"*40)
         while True:
             try:
+                #User input for state & city
                 print("Please select the look up by which you want to check weather forecast:")
                 print("1. state & city")
                 print("2. zip code")
@@ -99,7 +111,8 @@ def main():
                     if state_code.isalpha():
                         city_name = input("Please enter your city name: ").lower().strip()
                         if city_name.isalpha():
-                            unit = input("Please enter unit as 'kelvin' or 'imperial' or 'metric': ").lower().strip()
+                            #User input for Unit type selection
+                            unit = input("Please enter unit as 'kelvin'(standard) or 'imperial'(fahrenheit) or 'metric'(celsius): ").lower().strip()
                             if unit == 'imperial' or unit == 'metric' or unit == 'kelvin':
                                 api_coordinates_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name},{state_code},{country_code}&limit=1&appid={api_key}&units={unit}"
                                 coordinates_list = get_coordinates(api_coordinates_url)
@@ -132,6 +145,9 @@ def main():
                 elif user_choice == 3:
                     print("Thank you for using BRUIN weather forecast")
                     break
+            except IndexError as ie:
+                logging.error(ie)
+                print("Something went wrong. Please try again later.")
             except ValueError:
                 print("Please enter the suggested number")
                 logging.error("Invalid input")
