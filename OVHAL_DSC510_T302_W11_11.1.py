@@ -64,7 +64,7 @@ def get_weather(coordinates, unit):
     except IndexError as ie:
         logging.error(ie)
         print("Something went wrong. Please try again later.")
-        exit()
+        return None
     except Exception as e:
         logging.error(e)
         print("Something went wrong. Please try again later.")
@@ -128,7 +128,7 @@ def main():
                 elif user_choice == 2:
                     try:
                         zip_code = input("Please enter your 5 digit zipcode: ").strip()
-                        if zip_code.isdigit():
+                        if zip_code.isdigit() and len(zip_code) == 5:
                             unit = input("Please enter unit as 'kelvin'(standard) or 'imperial'(fahrenheit) or 'metric'(celsius): ").lower().strip()
                             if unit == 'imperial' or unit == 'metric' or unit == 'kelvin':
                                 api_coordinates_url = f"http://api.openweathermap.org/geo/1.0/zip?zip={zip_code},{country_code}&appid={api_key}&units={unit}"
@@ -138,7 +138,7 @@ def main():
                             else:
                                 print("Please enter unit as 'standard' or 'fahrenheit' or 'celsius'.")
                         else:
-                            print("Please enter zip code in numbers only")
+                            print("Please enter 5 digit valid zip code")
                     except requests.exceptions.RequestException as e:
                         print("Something went wrong. Please try again.")
                         logging.error(e)
