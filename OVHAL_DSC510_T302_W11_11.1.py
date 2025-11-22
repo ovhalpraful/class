@@ -37,11 +37,9 @@ def get_coordinates(api_coordinates_url):
     except requests.exceptions.RequestException as e:
         logging.error(e)
         print("Something went wrong. Please try again later.")
-        return None
     except IndexError as ie:
         logging.error(ie)
         print("Something went wrong. Please try again later.")
-        return None
 
 #Function to get weather data by passing coordinates through Geocoding API
 def get_weather(coordinates, unit):
@@ -55,24 +53,18 @@ def get_weather(coordinates, unit):
         return weather
     except requests.exceptions.RequestException as e:
         logging.error(e)
-        print("Something went wrong. Please try again later.")
-        return None
     except KeyError as e:
         logging.error(e)
-        print("Something went wrong. Please try again later.")
-        return None
     except IndexError as ie:
         logging.error(ie)
-        print("Something went wrong. Please try again later.")
-        return None
     except Exception as e:
         logging.error(e)
-        print("Something went wrong. Please try again later.")
-        return None
 
 #Function to print the weather data in a readable format
 def print_weather(weather):
-    try:
+    if weather is None:
+        print("Weather forecast not available.")
+    else:
         print("-"*40)
         print(f"{'Parameters':<30}{'Values':<60}")
         print("-" * 40)
@@ -88,10 +80,6 @@ def print_weather(weather):
         print(f"{'Humidity':<30}{weather["main"]["humidity"]:<60}")
         print(f"{'Visibility':<30}{weather["visibility"]:<60}")
         print("-"*40)
-    except Exception as e:
-        logging.error(e)
-        print("Something went wrong. Please try again later.")
-        return None
 
 def main():
     try:
@@ -128,7 +116,7 @@ def main():
                 elif user_choice == 2:
                     try:
                         zip_code = input("Please enter your 5 digit zipcode: ").strip()
-                        if zip_code.isdigit() and len(zip_code) == 5:
+                        if zip_code.isdigit() and len(zip_code) == 5 and int(zip_code) > 0:
                             unit = input("Please enter unit as 'kelvin'(standard) or 'imperial'(fahrenheit) or 'metric'(celsius): ").lower().strip()
                             if unit == 'imperial' or unit == 'metric' or unit == 'kelvin':
                                 api_coordinates_url = f"http://api.openweathermap.org/geo/1.0/zip?zip={zip_code},{country_code}&appid={api_key}&units={unit}"
