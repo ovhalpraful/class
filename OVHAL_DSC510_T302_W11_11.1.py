@@ -3,14 +3,14 @@
 #Week 11
 #Programming Assignment 11.1 - Weather forecast app: Displaying weather using OpenWeatherMap API
 #Author Praful Ovhal
-#Date 11--2025
+#Date 11-18-2025
 
 #Change#: 1
 #Change(s) Made: Added exceptions code and comments
-#Date of Change: 11--2025
+#Date of Change: 11-22-2025
 #Author: Praful Ovhal
 #Change Approved by: Praful Ovhal
-#Date Moved to Production: 11--2025
+#Date Moved to Production: 11-22-2025
 #--------------------------------------------------------------
 import requests
 import json
@@ -36,10 +36,8 @@ def get_coordinates(api_coordinates_url):
         return coordinates
     except requests.exceptions.RequestException as e:
         logging.error(e)
-        print("Something went wrong. Please try again later.")
     except IndexError as ie:
         logging.error(ie)
-        print("Something went wrong. Please try again later.")
 
 #Function to get weather data by passing coordinates through Geocoding API
 def get_weather(coordinates, unit):
@@ -63,7 +61,7 @@ def get_weather(coordinates, unit):
 #Function to print the weather data in a readable format
 def print_weather(weather):
     if weather is None:
-        print("Weather forecast not available.")
+        print("\033[91mWeather forecast not available.\033[0m")
     else:
         print("-"*40)
         print(f"{'Parameters':<30}{'Values':<60}")
@@ -89,7 +87,7 @@ def main():
         while True:
             try:
                 #User input for state & city
-                print("Please select the look up by which you want to check weather forecast:")
+                print("\nPlease select the look up by which you want to check weather forecast:")
                 print("1. state & city")
                 print("2. zip code")
                 print("3. exit")
@@ -110,9 +108,9 @@ def main():
                             else:
                                 print("Please enter unit as 'standard' or 'fahrenheit' or 'celsius'.")
                         else:
-                            print("Please enter a valid city name.")
+                            print("\033[91mPlease enter a valid city name.\033[0m")
                     else:
-                        print("Please enter a valid state abbreviation.")
+                        print("\033[91mPlease enter a valid state abbreviation.\033[0m")
                 elif user_choice == 2:
                     try:
                         zip_code = input("Please enter your 5 digit zipcode: ").strip()
@@ -124,20 +122,20 @@ def main():
                                 weather = get_weather(coordinates, unit)
                                 print_weather(weather)
                             else:
-                                print("Please enter unit as 'standard' or 'fahrenheit' or 'celsius'.")
+                                print("\033[91mPlease enter unit as 'kelvin'(standard) or 'imperial'(fahrenheit) or 'metric'(celsius).\033[0m")
                         else:
-                            print("Please enter 5 digit valid zip code")
+                            print("\033[91mPlease enter 5 digit valid zip code.\033[0m")
                     except requests.exceptions.RequestException as e:
-                        print("Something went wrong. Please try again.")
+                        print("\033[91mSomething went wrong. Please try again.\033[0m")
                         logging.error(e)
                 elif user_choice == 3:
                     print("Thank you for using BRUIN weather forecast")
                     break
             except IndexError as ie:
                 logging.error(ie)
-                print("Something went wrong. Please try again later.")
+                print("\033[91mSomething went wrong. Please try again later.\033[0m")
             except ValueError:
-                print("Please enter the suggested number")
+                print("\033[91mPlease enter the suggested number.\033[0m")
                 logging.error("Invalid input")
     except KeyboardInterrupt:
         print("\nYou chose to close the BRUIN weather forecast. See you next time!")
